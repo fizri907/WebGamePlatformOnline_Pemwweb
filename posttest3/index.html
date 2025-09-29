@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GameBox — Platform Game Online (Demo)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">GameBox</div>
+      <nav class="nav">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Top</a>
+        <a href="#" class="nav-link">New</a>
+      </nav>
+
+      <div class="controls">
+        <input id="search" class="search" placeholder="Cari game, genre, atau developer..." />
+        <button id="btnLogin" class="btn small alt">Masuk</button>
+        <button id="btnRegister" class="btn play small">Daftar</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main">
+
+    <section class="controls-row">
+      <div id="results-text" class="muted">Menampilkan game</div>
+    </section>
+
+    <section id="grid" class="grid"></section>
+
+    <footer class="footer">
+      © <span id="year"></span> GameBox · Demo — ganti dengan backend production untuk konten nyata.
+    </footer>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-inner" role="dialog" aria-modal="true" aria-label="Game modal">
+      <header class="modal-header">
+        <div id="modal-title" class="modal-title">Game</div>
+        <button id="modal-close" class="modal-close" aria-label="Tutup">✕</button>
+      </header>
+      <div class="modal-body">
+        <iframe id="game-iframe" src="" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <footer class="modal-footer">
+        <button id="modal-close-2" class="btn">Tutup</button>
+      </footer>
+    </div>
+    <div id="modal-backdrop" class="modal-backdrop" tabindex="-1"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
