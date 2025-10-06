@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+   
+    --bg: #0d0d1a;            
+    --bg-alt: #1a1a2e;       
+    --card: #20203a;         
+    --accent: #ff6b81;        
+    --accent-hover: #ff4757;  
+    --text: #e0e0f0;          
+    --muted: #a0a0c0;         
+    --radius: 12px;
+    --shadow: 0 8px 20px rgba(0, 0, 0, 0.5); 
+    --subtle-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Roboto, Arial, sans-serif;
+    line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.site-header {
+    background: rgba(26, 26, 46, 0.95); 
+    backdrop-filter: blur(5px);         
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.brand {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px rgba(255, 107, 129, 0.5);
+}
+
+.nav {
+    display: flex;
+    gap: 1.8rem;
+    margin: 0 1.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--muted);
+    transition: color 0.3s, transform 0.2s;
+    padding: 0.25rem 0;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search {
+    padding: 0.7rem 1.2rem;
+    border-radius: 20px;
+    border: 1px solid #3a3a5a;
+    outline: none;
+    background: var(--card);
+    color: var(--text);
+    width: 280px;
+    transition: all 0.3s;
+    box-shadow: inset var(--subtle-shadow);
+}
+
+.search:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(255, 107, 129, 0.5);
+    background: #2a2a4e;
+}
+
+.btn {
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn.small {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.9rem;
+}
+
+.btn.play {
+    background: var(--accent);
+    color: var(--bg); 
+    box-shadow: 0 4px 15px rgba(255, 107, 129, 0.4);
+}
+
+.btn.play:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(255, 107, 129, 0.6);
+}
+
+.btn.alt {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid #3a3a5a;
+}
+
+.btn.alt:hover {
+    background: #30305a;
+    transform: translateY(-1px);
+}
+
+.main {
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+}
+
+.controls-row {
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+.grid {
+    margin-top: 1rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.card-game {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-game:hover {
+    transform: translateY(-7px) scale(1.01);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 107, 129, 0.3);
+}
+
+.card-game .thumb img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.card-game:hover .thumb img {
+    transform: scale(1.05);
+}
+
+.card-game .meta {
+    padding: 1.2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-game .title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+
+.card-game .tags {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+
+.footer {
+    margin-top: 5rem;
+    padding: 2rem;
+    text-align: center;
+    color: var(--muted);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--bg-alt);
+    font-size: 0.9rem;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9); 
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 100;
+}
+
+.modal[aria-hidden="false"] {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-inner {
+    background: var(--bg-alt);
+    border-radius: var(--radius);
+    width: 95%;
+    max-width: 1400px;
+    height: 95vh;     
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+    animation: pop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncier animation */
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-header, .modal-footer {
+    padding: 1.2rem;
+    background: var(--card);
+    border-bottom: 1px solid #30305a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.modal-close {
+    background: var(--accent);
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.modal-close:hover {
+    transform: rotate(90deg);
+    background: var(--accent-hover);
+}
+
+.modal-body {
+    flex: 1;
+    background: #000; 
+}
+
+.modal-body iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.modal-footer {
+    justify-content: flex-end;
+    border-top: 1px solid #30305a;
+    border-bottom: none;
+}
